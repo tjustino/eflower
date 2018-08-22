@@ -1,0 +1,27 @@
+doctype html
+html lang="fr"
+  head
+    title ℰƒℓ𝓸𝔀ℯ𝓻
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+
+  body.container
+    header.row.align-items-center
+      .col-auto.ml-auto
+        p 🕑 Ouvert aujourd'hui jusqu'à 19h30
+      .col-auto.mx-auto
+        h1 = link_to "La fontaine aux fleurs", root_path
+      .col-auto.mr-auto
+        = link_to "📞 02 41 78 31 87", "tel:0241783187"
+
+    section
+      = yield
+
+    footer
+      .row.justify-content-end
+        .col-auto
+          button.btn.btn-link type="button" data-toggle="modal" data-target="#legals" Mentions légales
+          = render partial: "layouts/legals"

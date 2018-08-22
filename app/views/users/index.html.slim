@@ -1,0 +1,33 @@
+.row.justify-content-center
+  = link_to "🔙 Retour au centre d'administration", admin_path
+
+br
+
+p#notice = notice
+
+.row.align-items-center
+  .col
+    h1 Liste des utilisateurs
+  .col-md-auto
+    = link_to "Nouvel utilisateur", new_admin_user_path, class: "btn btn-primary"
+
+.row
+  - if @users.any?
+    table.table.table-hover
+      thead.thead-light
+        tr
+          th Mail de l'utilisateur
+          th Est administrateur ?
+          th colspan="3"
+
+      tbody
+        - @users.each do |user|
+          tr
+            td = user.email
+            td = user.is_admin ? "✅" : "❌"
+            td = link_to "Edition", edit_admin_user_path(user)
+            td = link_to "Suppression", \
+                         admin_user_path(user), \
+                         method: :delete, \
+                         data: { confirm: "Cette action est irréversible !\nOn efface quand même ?" }
+  - else
