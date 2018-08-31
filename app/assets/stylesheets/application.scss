@@ -43,3 +43,8 @@ a {
     background-color: $background;
   }
 }
+
+// never cut off certain spaces
+.nowrap {
+  white-space: nowrap;
+}
