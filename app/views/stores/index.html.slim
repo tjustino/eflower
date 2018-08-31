@@ -1,19 +1,28 @@
+br
+
+.row.justify-content-center
+  = link_to "🔙 Retour au centre d'administration", admin_path
+
+br
+
 p#notice = notice
 
-.row.justify-content-center
-  = link_to "🔙 Retour à l'administration", admin_path
+.row.align-items-center
+  .col
+    h1 Liste des magasins
+  .col-md-auto
+    = link_to "Nouveau magasin", new_admin_store_path, class: "btn btn-primary"
 
-h1 Magasin
 
-.row.justify-content-center
+.row
   - if @stores.any?
-    table
-      thead
+    table.table.table-hover
+      thead.thead-light
         tr
           th Nom
           th Addresse
           th Téléphone
-          th colspan="3"
+          th colspan="2"
 
       tbody
         - @stores.each do |store|
@@ -22,10 +31,8 @@ h1 Magasin
             td = store.address
             td = store.phone
             td = link_to 'Edit', edit_admin_store_path(store)
-            td = link_to 'Destroy', admin_store_path(store), method: :delete, data: { confirm: 'Are you sure?' }
+            td = link_to 'Destroy', \
+                         admin_store_path(store), \
+                         method: :delete, \
+                         data: { confirm: "Cette action est irréversible !\nOn efface quand même ?" }
   - else
-    
-
-br
-
-= link_to "Nouveau magasin", new_admin_store_path

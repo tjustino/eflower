@@ -1,9 +1,9 @@
-= form_with(model: user, url: admin_users_path(@user), local: true) do |form|
-  - if user.errors.any?
+= form_with(model: [:admin, @user], local: true) do |form|
+  - if @user.errors.any?
     #error_explanation
-      h2 #{pluralize(user.errors.count, "error")} empêche l'enregistrement
+      h2 #{pluralize(@user.errors.count, "error")} empêche l'enregistrement
       ul
-        - user.errors.full_messages.each do |message|
+        - @user.errors.full_messages.each do |message|
           li = message
 
   .field
