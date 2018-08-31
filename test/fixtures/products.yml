@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+orchidaceae:
+  name: Orchidée
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  image_url: original_1.jpg
+  price: 26.00
+
+bonsai:
+  name: Bonsaï
+  description: Vestibulum dapibus nunc eu elit laoreet, sit amet efficitur.
+  image_url: original_2.jpg
+  price: 34.90
+
+lemon:
+  name: Citronnier
+  description: In a erat vitae lacus venenatis tincidunt id et felis.
+  image_url: original_3.jpg
+  price: 55.45

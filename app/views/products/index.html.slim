@@ -1,0 +1,40 @@
+br
+
+.row.justify-content-center
+  = link_to "🔙 Retour au centre d'administration", admin_path
+
+br
+
+p#notice = notice
+
+.row.align-items-center
+  .col
+    h1 Liste des produits
+  .col-md-auto
+    = link_to "Nouveau produit", new_admin_product_path, class: "btn btn-primary"
+
+
+.row
+  - if @products.any?
+    table.table.table-hover
+      thead.thead-light
+        tr
+          th
+          th Nom
+          th Description
+          th Prix
+          th colspan="2"
+
+      tbody
+        - @products.each do |product|
+          tr
+            td = image_tag(product.image_url, height: "128") if asset_exists?(product.image_url)
+            td.font-weight-bold = product.name
+            td = product.description
+            td.nowrap = number_to_currency(product.price)
+            td = link_to 'Edit', edit_admin_product_path(product)
+            td = link_to 'Destroy', \
+                         admin_product_path(product), \
+                         method: :delete, \
+                         data: { confirm: "Cette action est irréversible !\nOn efface quand même ?" }
+  - else
