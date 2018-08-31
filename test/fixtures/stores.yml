@@ -1,11 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  address: MyText
-  phone: MyString
-
-two:
-  name: MyString
-  address: MyText
-  phone: MyString
+default:
+  name: Default Store
+  address: 8 Street Life Avenue\n1234 Here&There
+  phone: 123456
