@@ -1,6 +1,9 @@
+br
+
 .row.justify-content-center
   .card
     .card-header Administration du site
     ul.list-group.list-group-flush
       li.list-group-item = link_to "Magasin", admin_stores_path
+      li.list-group-item = link_to "Produits", admin_products_path
       li.list-group-item = link_to "Utilisateurs", admin_users_path
