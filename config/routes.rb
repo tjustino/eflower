@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get "admin", to: "admin#index"
 
   scope "admin", as: "admin" do
-    resources :users,  except: [:show]
-    resources :stores, except: [:show]
+    resources :products, except: [:show]
+    resources :users,    except: [:show]
+    resources :stores,   except: [:show]
   end
 end
