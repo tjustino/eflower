@@ -15,4 +15,10 @@
 
 # Product model
 class Product < ApplicationRecord
+  validates :name,        presence: true, uniqueness: true
+  validates :description, presence: true
+  validates :image_url,   allow_blank: true,
+                          format: { with: /\.(gif|jpg|jpeg|png)\Z/i }
+  validates :price,       presence: true,
+                          numericality: { greater_than_or_equal_to: 0.01 }
 end
