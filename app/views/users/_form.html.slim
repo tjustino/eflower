@@ -6,21 +6,26 @@
         - @user.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = form.label :email
-    = form.text_field :email
+  .form-group.row
+    = form.label :email, class: "col-2 col-form-label"
+    .col-sm-10
+      = form.text_field :email, class: "form-control"
 
-  .field
-    = form.label :password
-    = form.password_field :password
+  .form-group.row
+    = form.label :password, class: "col-2 col-form-label"
+    .col-sm-10
+      = form.password_field :password, class: "form-control"
 
-  .field
-    = form.label :password_confirmation
-    = form.password_field :password_confirmation
+  .form-group.row
+    = form.label :password_confirmation, class: "col-2 col-form-label"
+    .col-sm-10
+      = form.password_field :password_confirmation, class: "form-control"
 
-  .field
-    = form.label :is_admin
-    = form.check_box :is_admin
+  .form-group
+    .form-check
+      = form.label :is_admin, class: "form-check-label" do
+        = form.check_box :is_admin, class: "form-check-input"
+        = t('.checked')
 
-  .actions
-    = form.submit
+  .row.justify-content-end
+    = form.submit class: "btn btn-primary"

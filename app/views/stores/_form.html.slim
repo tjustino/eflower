@@ -6,17 +6,20 @@
         - @store.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = form.label :name
-    = form.text_field :name
+  .form-group.row
+    = form.label :name, class: "col-2 col-form-label"
+    .col-sm-10
+      = form.text_field :name, class: "form-control"
 
-  .field
-    = form.label :address
-    = form.text_area :address
+  .form-group.row
+    = form.label :address, class: "col-2 col-form-label"
+    .col-sm-10
+      = form.text_area :address, class: "form-control"
 
-  .field
-    = form.label :phone
-    = form.telephone_field :phone
+  .form-group.row
+    = form.label :phone, class: "col-2 col-form-label"
+    .col-sm-10
+      = form.telephone_field :phone, class: "form-control"
 
-  .actions
-    = form.submit
+  .row.justify-content-end
+    = form.submit class: "btn btn-primary"
