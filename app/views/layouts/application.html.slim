@@ -21,7 +21,13 @@ html lang="fr"
       = yield
 
     footer
-      .row.justify-content-end
-        .col-auto
-          button.btn.btn-link type="button" data-toggle="modal" data-target="#legals" Mentions légales
-          = render partial: "layouts/legals"
+      - if request.env["PATH_INFO"].include? "admin"
+        / = contruct_navs_for(request.env["PATH_INFO"])
+      - else
+        .row.justify-content-end
+          .col-auto
+            button.btn.btn-link type="button" data-toggle="modal" data-target="#legals" Mentions légales
+            = render partial: "layouts/legals"
+
+      - if Rails.env.development?
+        = console
