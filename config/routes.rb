@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # see http://guides.rubyonrails.org/routing.html
   root "home#index"
 
+  get "shop",  to: "shop#index"
   get "admin", to: "admin#index"
 
   scope "admin", as: "admin" do
