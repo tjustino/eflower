@@ -23,7 +23,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         product: {
           name:        SecureRandom.hex,
           description: SecureRandom.hex,
-          image_url:   SecureRandom.hex,
+          image_url:   SecureRandom.hex + ".jpg",
           price:       rand(0..500.00).round(2)
         }
       }
@@ -41,9 +41,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     patch admin_product_url(@product), params: {
       product: {
         name:        @product.name,
-        description: @product.description,
+        description: SecureRandom.hex,
         image_url:   @product.image_url,
-        price:       @product.price
+        price:       rand(0..500.00).round(2)
       }
     }
     assert_redirected_to admin_products_url
