@@ -22,22 +22,4 @@ ActiveRecord::Schema.define(version: 2018_08_30_094121) do
     t.index ["name"], name: "index_products_on_name", unique: true
   end
 
-  create_table "stores", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "address", null: false
-    t.string "phone", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_stores_on_name", unique: true
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.boolean "is_admin", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-  end
-
 end
