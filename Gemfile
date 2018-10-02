@@ -39,8 +39,8 @@ gem "bcrypt", "~> 3.1.7"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 
-gem "semantic-ui-sass"
 gem "jquery-rails"
+gem "semantic-ui-sass"
 gem "slim"
 
 group :development, :test do
