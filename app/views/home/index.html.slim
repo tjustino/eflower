@@ -1,62 +1,39 @@
-.row
-  .col
-    #mainCarousel.carousel.slide data-ride="carousel"
-      ol.carousel-indicators
-        li.active data-target="#mainCarousel" data-slide-to="0"
-        li data-target="#mainCarousel" data-slide-to="1"
-        li data-target="#mainCarousel" data-slide-to="2"
-      .carousel-inner
-        .carousel-item.active
-          = image_tag "pot_de_fer.jpg", class: "d-block w-auto h-auto"
-          .carousel-caption.d-none.d-md-block
-            h5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas auctor hendrerit metus, quis dapibus ex pellentesque a.
-        .carousel-item
-          = image_tag "pot_jaune.jpg", class: "d-block w-auto h-auto"
-          .carousel-caption.d-none.d-md-block
-            h5 Etiam non suscipit ante, eu varius turpis. Nullam lobortis, nulla ut sollicitudin sodales, dolor sapien fermentum sem, a scelerisque urna lectus id purus.
-        .carousel-item
-          = image_tag "cerise.jpg", class: "d-block w-auto h-auto"
-          .carousel-caption.d-none.d-md-block
-            h5 Donec dui lectus, pharetra at euismod vel, volutpat eget ipsum. Aliquam finibus dui in dolor facilisis ultrices. Pellentesque ac tempor lectus.
-      a.carousel-control-prev href="#mainCarousel" role="button" data-slide="prev"
-        span.carousel-control-prev-icon aria-hidden="true"
-        span.sr-only Précédent
-      a.carousel-control-next href="#mainCarousel" role="button" data-slide="next"
-        span.carousel-control-next-icon aria-hidden="true"
-        span.sr-only Suivant
+/ presentation
+.ui.grid
+  .column
+    = image_tag "store", class: "ui rounded image"
+
+/ location | store
+.ui.two.column.divided.grid
+  .column
+    .ui.raised.segment
+      .ui.teal.ribbon.label
+        i.location.arrow.icon
+        a target="_blank" href="https://www.openstreetmap.org/directions?from=&to=47.30219%2C-0.63217" Venez nous rencontrer !
+      .ui.header.nowrap Services proposés :
+      ul.ui.list
+        li Livraisons à domicile dans un rayon de 10 km
+        li Location de plantes et de contenants
+        li blablabla
+  .center.aligned.column
+    h1.ui.icon.header
+      i.shopping.bag.icon
+      .content = link_to "Visitez notre boutique en ligne !", store_path
 
 br
 
-.row
-  .col-3
-    .embed-responsive.embed-responsive-1by1
-      iframe.embed-responsive-item src="https://www.openstreetmap.org/export/embed.html?bbox=-0.6330817937850953%2C47.30102974042293%2C-0.6312578916549684%2C47.30326152110381&amp;layer=mapnik&amp;marker=47.302146551986255%2C-0.6321698427200317" style="border: 1px solid black"
-    small
-      a target="_blank" href="https://www.openstreetmap.org/?mlat=47.30215&amp;mlon=-0.63217#map=19/47.30215/-0.63217" Trouvez nous facilement !
-  .col-5
-    dl
-      dt.text-success La <i>Fontaine aux Fleurs</i>
-      dt 2 bis rue des Bonnes Blanches
-      dt 49750 Saint-Lambert-du-Lattay
-    span.badge.badge-pill.badge-info Services proposés :
-    ul
-      li Livraisons à domicile dans un rayon de 10 km
-      li Location de plantes et de contenants
-      li blablabla
-  .col-4.align-self-center
-    .jumbotron
-      .row.align-items-center
-        .col-auto
-          h3 🛍️
-        .col.text-center
-          = link_to "Venez visitez notre boutique en ligne !", store_path
-        .col-auto
-          h3 💐
+/ favorites
+.ui.horizontal.divider.header
+  i.heart.outline.icon
+  | Vos produits préférés
+.ui.three.column.centered.grid
+  = render partial: "home/favorites"
 
 br
 
-= render partial: "home/favorites"
-
-br
-
-= render partial: "home/originals"
+/ originals
+.ui.horizontal.divider.header
+  i.star.outline.icon
+  | Nos créations originales
+.ui.three.column.centered.grid
+  = render partial: "home/originals"

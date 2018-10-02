@@ -8,26 +8,28 @@ html lang="fr"
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
 
-  body.container
-    header.row.align-items-center
-      .col-auto.ml-auto
-        p 🕑 Ouvert aujourd'hui jusqu'à 19h30
-      .col-auto.mx-auto
-        h1 = link_to "La fontaine aux fleurs", root_path
-      .col-auto.mr-auto
-        = link_to "📞 02 41 78 31 87", "tel:0241783187"
+  body
+    header.ui.vertical.header.basic.segment
+      .ui.container
+        .ui.three.column.middle.aligned.grid
+          .left.floated.left.aligned.column
+            p 🕑 Ouvert aujourd'hui jusqu'à 19h30
+          .center.aligned.column
+            h1 = link_to "La fontaine aux fleurs", root_path
+          .right.floated.right.aligned.column
+            = link_to "📞 02 41 78 31 87", "tel:0241783187"
 
-    section
-      = yield
+    section.ui.vertical.section.basic.segment
+      .ui.container
+        = yield
 
-    footer
-      - if request.env["PATH_INFO"].include? "admin"
-        / = contruct_navs_for(request.env["PATH_INFO"])
-      - else
-        .row.justify-content-end
-          .col-auto
-            button.btn.btn-link type="button" data-toggle="modal" data-target="#legals" Mentions légales
-            = render partial: "layouts/legals"
+    footer.ui.vertical.footer.basic.segment
+      .ui.center.aligned.container
+        .ui.section.divider
+        .ui.horizontal.small.divided.link.list
+          = link_to "CGV", "#", class: "item"
+          = link_to "Politique de confidentialité", "#", class: "item"
+          = link_to "Contact", "#", class: "item"
 
-      - if Rails.env.development?
-        = console
+    / - if Rails.env.development?
+    /   = console
