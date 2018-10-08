@@ -5,9 +5,11 @@ h1 Catalogue
 
 .store
   ul.catalog
-    - @products.each do |product|
-      li
-        = image_tag(product.image_url, height: "128")
-        h2     = product.name
-        p      = sanitize(product.description)
-        .price = number_to_currency(product.price)
+    - cache @products do
+      - @products.each do |product|
+        - cache product do
+          li
+            = image_tag(product.image_url, height: "128")
+            h2     = product.name
+            p      = sanitize(product.description)
+            .price = number_to_currency(product.price)
