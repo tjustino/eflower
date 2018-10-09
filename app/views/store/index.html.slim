@@ -12,4 +12,6 @@ h1 Catalogue
             = image_tag(product.image_url, height: "128")
             h2     = product.name
             p      = sanitize(product.description)
-            .price = number_to_currency(product.price)
+            .price
+              = number_to_currency(product.price)
+              = button_to "Add to cart", line_items_path(product_id: product)

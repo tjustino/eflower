@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get "store", to: "store#index"
   get "admin", to: "admin#index"
 
+  resources :carts
+  resources :line_items, except: [:show]
+
   scope "admin", as: "admin" do
     resources :products, except: [:show]
   end
