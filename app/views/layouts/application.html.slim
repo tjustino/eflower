@@ -31,5 +31,10 @@ html lang="fr"
           = link_to "Politique de confidentialité", "#", class: "item"
           = link_to "Contact", "#", class: "item"
 
-    / - if Rails.env.development?
-    /   = console
+      - if Rails.env.development?
+        #debug.ui.vertical.segment
+          .ui.compact.mini.yellow.message
+            i.close.icon
+            / i.bug.icon → https://github.com/Semantic-Org/Semantic-UI/issues/4759
+            .content
+              = debug(params)

@@ -16,3 +16,9 @@
 //= require jquery3
 //= require semantic-ui
 //= require_tree .
+
+$(document).ready(function() {
+  $(".close.icon").click(function() {
+    $(this).closest(".message").transition('fade');
+  });
+});
