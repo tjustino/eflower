@@ -3,15 +3,20 @@
 
 h1 Catalogue
 
-.store
-  ul.catalog
-    - cache @products do
-      - @products.each do |product|
-        - cache product do
-          li
-            = image_tag(product.image_url, height: "128")
-            h2     = product.name
-            p      = sanitize(product.description)
-            .price
-              = number_to_currency(product.price)
-              = button_to "Add to cart", line_items_path(product_id: product)
+.ui.divided.items
+  - cache @products do
+    - @products.each do |product|
+      - cache product do
+        .item
+          .ui.small.image = image_tag(product.image_url)
+          .content
+            .header = product.name
+            .meta
+              span.price = number_to_currency(product.price)
+            .description
+              p = sanitize(product.description)
+            .extra
+              .ui.right.floated
+                = button_to t(:add_to_cart), \
+                            line_items_path(product_id: product), \
+                            class: "ui primary button"
