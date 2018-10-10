@@ -1,6 +1,15 @@
 # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
 fr:
 ################################################################################
+# Action View
+# https://github.com/rails/rails/blob/master/actionview/lib/action_view/locale/en.yml
+################################################################################
+  store:
+    index:
+      add_to_cart: "Ajouter au panier"
+
+
+################################################################################
 # Active Record
 # https://github.com/rails/rails/blob/master/activerecord/lib/active_record/locale/en.yml
 ################################################################################
