@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Create line items table
 class CreateLineItems < ActiveRecord::Migration[5.2]
   def change
     create_table :line_items do |t|
