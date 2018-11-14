@@ -12,5 +12,5 @@ Layout/IndentationConsistency:
 AllCops:
   Exclude:
     - db/schema.rb
-    - bin/setup     # https://github.com/rubocop-hq/rubocop/issues/5237
-    - bin/update    # https://github.com/rubocop-hq/rubocop/issues/5237
+    - bin/setup     # https://github.com/rubocop-hq/rubocop-rails/issues/13
+    - bin/update    # https://github.com/rubocop-hq/rubocop-rails/issues/13
