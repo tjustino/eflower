@@ -23,6 +23,8 @@ fr:
         too_short:    "doit comporter au minimum %{count} caractères"
         invalid:      "n'est pas valide"
         greater_than_or_equal_to: "doit être supérieur ou égal à %{count}€"
+        restrict_dependent_destroy:
+          has_many: "Impossible de supprimer car il existe des dépendances."
 
     attributes:
       product:
