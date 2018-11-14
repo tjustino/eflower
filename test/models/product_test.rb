@@ -62,10 +62,10 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product is not valid with name already given" do
-    product = Product.new(name: products(:orchidaceae).name,
+    product = Product.new(name:        products(:orchidaceae).name,
                           description: "Vivamus hendrerit nisl eu fringilla",
-                          image_url: "image.jpg",
-                          price: 1)
+                          image_url:   "image.jpg",
+                          price:       1)
 
     assert product.invalid?
     assert_equal [
