@@ -1,8 +1,11 @@
 # https://rubocop.readthedocs.io/en/latest/
 
-# I always use double quotes
+# Preferences
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
 
 # Well, it's seem it's a rails project
 Rails:
