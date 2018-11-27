@@ -4,15 +4,15 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: %i[create]
-  before_action :set_line_item, only: %i[show edit update destroy]
+  before_action :set_line_item, only: %i[edit update destroy]
 
   # GET /line_items
   def index
     @line_items = LineItem.all
   end
 
-  # GET /line_items/1
-  def show; end
+  # # GET /line_items/1
+  # def show; end
 
   # GET /line_items/new
   def new
@@ -25,11 +25,10 @@ class LineItemsController < ApplicationController
   # POST /line_items
   def create
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
+    @line_item = @cart.add_product(product)
 
     if @line_item.save
-      redirect_to @line_item.cart,
-                  notice: "Line item was successfully created."
+      redirect_to @line_item.cart
     else
       render :new
     end
@@ -59,6 +58,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from internet, only allow the white list through
     def line_item_params
-      params.require(:line_item).permit(:product_id, :cart_id)
+      params.require(:line_item).permit(:product_id)
     end
 end

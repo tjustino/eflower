@@ -2,8 +2,5 @@
 
 one:
   product: bonsai
+  quantity: 2
   cart: one
-
-two:
-  product: bonsai
-  cart: two
