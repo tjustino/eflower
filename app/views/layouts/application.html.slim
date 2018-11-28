@@ -5,6 +5,8 @@ html lang="fr"
     = csrf_meta_tags
     = csp_meta_tag
 
+    - semantic_ui_css_components.each do |component|
+      = stylesheet_link_tag  semantic_ui_cdn_for(component, :css), media: "all"
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
 
@@ -27,9 +29,12 @@ html lang="fr"
       .ui.center.aligned.container
         .ui.section.divider
         .ui.horizontal.small.divided.link.list
-          = link_to "CGV", "#", class: "item"
-          = link_to "Politique de confidentialité", "#", class: "item"
-          = link_to "Contact", "#", class: "item"
+          = render partial: "layouts/terms"
+          = render partial: "layouts/privacy"
+          = render partial: "layouts/contact"
+          / = link_to "CGV", "#", class: "item"
+          / = link_to "Politique de confidentialité", "#", class: "item"
+          / = link_to "Contact", "#", class: "item"
 
       - if Rails.env.development?
         #debug.ui.vertical.segment
