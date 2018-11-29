@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+// This is a manifest file that'll be compiled into application.js, which will include all transitionthe files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
@@ -14,5 +14,7 @@
 // require activestorage
 // require turbolinks
 //= require jquery3
-//= require transition.min
+//= require semantic-ui/dimmer
+//= require semantic-ui/modal
+//= require semantic-ui/transition
 //= require_tree .

@@ -40,6 +40,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.1.0", require: false
 
 gem "jquery-rails"
+gem "semantic-ui-sass"
 gem "slim"
 
 group :development, :test do

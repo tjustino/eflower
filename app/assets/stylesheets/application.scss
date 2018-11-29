@@ -14,6 +14,32 @@
  *= require_self
  */
 
+// globals
+@import "semantic-ui/globals/all";
+// elements
+@import "semantic-ui/elements/button";
+@import "semantic-ui/elements/container";
+@import "semantic-ui/elements/divider";
+@import "semantic-ui/elements/header";
+@import "semantic-ui/elements/icon";
+@import "semantic-ui/elements/image";
+@import "semantic-ui/elements/label";
+@import "semantic-ui/elements/list";
+@import "semantic-ui/elements/segment";
+// collections
+@import "semantic-ui/collections/form";
+@import "semantic-ui/collections/grid";
+@import "semantic-ui/collections/menu";
+@import "semantic-ui/collections/message";
+// views
+@import "semantic-ui/views/card";
+@import "semantic-ui/views/item";
+// modules
+@import "semantic-ui/modules/dimmer";
+@import "semantic-ui/modules/modal";
+@import "semantic-ui/modules/transition";
+
+
 /* http://colorsafe.co/ */
 
 // $background: #f5efe5;
