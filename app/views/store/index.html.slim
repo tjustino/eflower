@@ -1,27 +1,29 @@
-.ui.basic.segment
-  - if notice
-    aside#notice = notice
+- if notice
+  aside.ui.info.message#notice
+    i.close.icon
+    = notice
 
-  h1 Catalogue
-
-  .ui.divided.items
-    - cache @products do
-      - @products.each do |product|
-        - cache product do
-          .item
-            .ui.small.image = image_tag(product.image_url)
-            .content
-              .header = product.name
-              .meta
-                span.price = number_to_currency(product.price)
-              .description
-                p = sanitize(product.description)
-              .extra
-                .ui.right.floated
-                  = button_to t('.add_to_cart'), \
-                              line_items_path(product_id: product), \
-                              class: "ui primary button", \
-                              remote: true
-
-  - if @cart
-    .ui.right.rail#cart = render @cart
+.ui.grid
+  .twelve.wide.column
+    h1 Catalogue
+    .ui.divided.items
+      - cache @products do
+        - @products.each do |product|
+          - cache product do
+            .item
+              .ui.small.image = image_tag(product.image_url)
+              .content
+                .header = product.name
+                .meta
+                  span.price = number_to_currency(product.price)
+                .description
+                  p = sanitize(product.description)
+                .extra
+                  .ui.right.floated
+                    = button_to t('.add_to_cart'), \
+                                line_items_path(product_id: product), \
+                                class: "ui primary button", \
+                                remote: true
+  .right.floated.three.wide.column
+    - if @cart
+      #cart = render @cart

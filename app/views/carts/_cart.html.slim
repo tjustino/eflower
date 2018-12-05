@@ -1,13 +1,22 @@
 article
-  - if notice
-    aside#notice = notice
+  - if @cart.line_items.any?
+    h2 Panier
+    table.ui.compact.striped.table
+      = render(cart.line_items)
+      tfoot.full-width
+        tr
+          th.right.aligned colspan="2" Total :
+          th.right.aligned.collapsing.price = number_to_currency(cart.total_price)
 
-  h2 Panier
-  table
-    = render(cart.line_items)
-    tfoot
-      tr
-        th colspan="2" Total :
-        td.price = number_to_currency(cart.total_price)
-
-  = button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' }
+    .ui.two.column.grid
+      .left.floated.column
+        = button_to cart, method: :delete, class: "ui red basic icon button", data: { confirm: 'Are you sure?' } do
+          i.trash.alternate.outline.icon
+      .right.floated.column
+        = button_to cart, method: :delete, class: "ui green icon button" do
+          i.shopping.cart.icon
+          | Commander
+  - else
+    h3.ui.icon.header
+      i.shopping.bag.icon
+      .content Votre panier est vide !
