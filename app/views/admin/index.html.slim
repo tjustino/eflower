@@ -1,12 +1,8 @@
 .ui.grid
   .four.wide.column
     .ui.vertical.pointing.menu
-      a.active.item = link_to "Produits", admin_products_path
-      a.item = link_to "test", "https://google.fr"
+      = link_to "Produits", admin_products_path, class: "item"
+      = link_to "test", "https://google.fr", class: "item"
   .twelve.wide.stretched.column
-    p blablabla
-/ .row.justify-content-center
-/   .card
-/     .card-header Administration du site
-/     ul.list-group.list-group-flush
-/       li.list-group-item = link_to "Produits", admin_products_path
+    .ui.message
+      p Bienvenue, veuillez sélectionner un élément sur le menu de gauche !

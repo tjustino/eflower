@@ -1,22 +1,27 @@
-- if notice
-  aside#notice = notice
+.ui.basic.segment
+  - if notice
+    aside#notice = notice
 
-h1 Catalogue
+  h1 Catalogue
 
-.ui.divided.items
-  - cache @products do
-    - @products.each do |product|
-      - cache product do
-        .item
-          .ui.small.image = image_tag(product.image_url)
-          .content
-            .header = product.name
-            .meta
-              span.price = number_to_currency(product.price)
-            .description
-              p = sanitize(product.description)
-            .extra
-              .ui.right.floated
-                = button_to t('.add_to_cart'), \
-                            line_items_path(product_id: product), \
-                            class: "ui primary button"
+  .ui.divided.items
+    - cache @products do
+      - @products.each do |product|
+        - cache product do
+          .item
+            .ui.small.image = image_tag(product.image_url)
+            .content
+              .header = product.name
+              .meta
+                span.price = number_to_currency(product.price)
+              .description
+                p = sanitize(product.description)
+              .extra
+                .ui.right.floated
+                  = button_to t('.add_to_cart'), \
+                              line_items_path(product_id: product), \
+                              class: "ui primary button", \
+                              remote: true
+
+  - if @cart
+    .ui.right.rail#cart = render @cart
