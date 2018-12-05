@@ -17,8 +17,9 @@
         li blablabla
   .center.aligned.middle.aligned.column
     h1.ui.icon.header
-      i.shopping.bag.icon
-      .content = link_to "Visitez notre boutique en ligne !", store_path
+      = link_to store_path do
+        i.shopping.bag.icon
+        .content Visitez notre boutique en ligne !
 
 br
 
