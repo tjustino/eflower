@@ -8,12 +8,12 @@ article
           th.right.aligned colspan="2" Total :
           th.right.aligned.collapsing.price = number_to_currency(cart.total_price)
 
-    .ui.two.column.grid
+    .ui.two.column.grid.actions
       .left.floated.column
         = button_to cart, method: :delete, class: "ui red basic icon button", data: { confirm: 'Are you sure?' } do
           i.trash.alternate.outline.icon
       .right.floated.column
-        = button_to cart, method: :delete, class: "ui green icon button" do
+        = button_to new_order_path, method: :get, class: "ui green icon button" do
           i.shopping.cart.icon
           | Commander
   - else

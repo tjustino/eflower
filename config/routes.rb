@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :carts
   resources :line_items, except: [:show]
+  resources :orders
 
   scope "admin", as: "admin" do
     resources :products, except: [:show]

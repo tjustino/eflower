@@ -4,3 +4,9 @@ one:
   product: bonsai
   quantity: 2
   cart: one
+
+two:
+  product: lemon
+  quantity: 3
+  cart: two
+  order: thomas_order

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+thomas_order:
+  name: Thomas J.
+  address: 6 St Seiya
+  email: thomas@email.com
+  pay_type: 1
+
+john_order:
+  name: John SMITH
+  address: 3 Bvd Street
+  email: john@email.com
+  pay_type: 2
